@@ -33,9 +33,37 @@ body { font-size: 16px; }
 .flow-node-2d b { font-size: 14px; text-align: center; }
 .flow-node-2d small { font-size: 11px; color: #ad929a; text-align: center; }
 .flow-connector { position: relative; flex: 0 1 95px; height: 5px; border-radius: 8px; background: #e9b6c5; min-width: 25px; }
-.connector-arrow { position: absolute; right: -5px; top: -13px; color: #d985a0; font-size: 25px; }
-.data-packet { position: absolute; top: -8px; left: 0; color: #92a675; font-size: 19px; animation: packetMove 2s ease-in-out infinite alternate; }
-@keyframes packetMove { from { transform: translateX(0); } to { transform: translateX(calc(100% - 12px)); } }
+.connector-arrow {
+  position: absolute;
+  right: -5px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #d985a0;
+  font-size: 25px;
+  line-height: 1;
+  z-index: 2;
+}
+
+.data-packet {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  color: #92a675;
+  font-size: 15px;
+  line-height: 1;
+  z-index: 3;
+  animation: packetMove 2s ease-in-out infinite alternate;
+}
+
+@keyframes packetMove {
+  from {
+    transform: translate(0, -50%);
+  }
+  to {
+    transform: translate(calc(100% - 12px), -50%);
+  }
+}
 .flow-explain { display: flex; align-items: flex-start; gap: 13px; margin: 25px auto 12px; max-width: 650px; padding: 17px; background: #fffefa; border: 1px solid #f0dce2; border-radius: 16px; }
 .step-bubble { width: 35px; height: 35px; border-radius: 50%; display: grid; place-items: center; background: #eaf0df; color: #74865b; font-weight: 900; flex-shrink: 0; }
 .flow-explain b { font-family: 'Playfair Display',serif; font-size: 18px; color: #806b72; }
@@ -1191,3 +1219,4 @@ main,
     font-size: 18px;
   }
 }
+
