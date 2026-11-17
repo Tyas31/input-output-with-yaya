@@ -1040,3 +1040,154 @@ main,
     justify-content: center;
   }
 }
+
+
+/* =========================================
+   PERAPIAN TAMPILAN MATERI TAMBAHAN I/O
+   ========================================= */
+
+/* 1. Bagian perangkat berdasarkan arah data */
+.everyday-box:has(.role-grid) {
+  display: block;
+  padding: 26px;
+  margin: 24px 0;
+}
+
+.everyday-box:has(.role-grid) > div:first-child {
+  max-width: 760px;
+  margin-bottom: 22px;
+}
+
+.everyday-box:has(.role-grid) .role-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.everyday-box:has(.role-grid) .role-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+  min-height: 230px;
+  padding: 20px;
+  border: 1px solid #f0dce1;
+  border-radius: 17px;
+  background: #fffafb;
+  text-align: left;
+}
+
+.everyday-box:has(.role-grid) .role-card > span {
+  font-size: 27px;
+  margin-bottom: 12px;
+}
+
+.everyday-box:has(.role-grid) .role-card > b {
+  color: #806b72;
+  font-size: 14px;
+  margin-bottom: 9px;
+}
+
+.everyday-box:has(.role-grid) .role-card > p {
+  color: #8d8978;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.everyday-box:has(.role-grid) .role-card .role-extra {
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 12px;
+}
+
+/* 2. Contoh proses dan pendalaman materi */
+.everyday-box:has(.note-box) {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+  align-items: stretch;
+  gap: 24px;
+  padding: 26px;
+  margin: 24px 0;
+}
+
+.everyday-box:has(.note-box) > div:first-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.everyday-box:has(.note-box) .note-box {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 20px;
+  border: 1px solid #e9e5cf;
+  border-radius: 17px;
+  background: #fffdf4;
+}
+
+.everyday-box:has(.note-box) .note-box b {
+  display: block;
+  margin-bottom: 12px;
+  color: #82936a;
+  font-size: 14px;
+}
+
+.everyday-box:has(.note-box) .note-box p {
+  margin: 0;
+  color: #8d8978;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.everyday-box:has(.note-box) .note-box p + p {
+  margin-top: 10px;
+}
+
+/* 3. Penyesuaian judul dan teks */
+.everyday-box .eyebrow {
+  display: inline-block;
+  margin-bottom: 8px;
+}
+
+.everyday-box h3 {
+  font-size: 21px;
+  line-height: 1.4;
+}
+
+.everyday-box p {
+  overflow-wrap: break-word;
+}
+
+/* 4. Tampilan tablet */
+@media (max-width: 900px) {
+  .everyday-box:has(.role-grid) .role-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .everyday-box:has(.note-box) {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 5. Tampilan HP */
+@media (max-width: 600px) {
+  .everyday-box:has(.role-grid),
+  .everyday-box:has(.note-box) {
+    padding: 17px;
+  }
+
+  .everyday-box:has(.role-grid) .role-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .everyday-box:has(.role-grid) .role-card {
+    min-height: 0;
+  }
+
+  .everyday-box h3 {
+    font-size: 18px;
+  }
+}

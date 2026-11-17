@@ -70,37 +70,67 @@ const devices = [
 
 const flowInput = [
   [
-    "Keyboard",
-    "Pengguna menekan tombol. Keyboard menangkap masukan berupa karakter atau perintah.",
-    "⌨️"
+    "Pengguna",
+    "Pengguna menekan tombol pada keyboard untuk memasukkan huruf, angka, atau perintah. Tindakan ini menjadi awal terjadinya proses input.",
+    "🙋",
+    "Sumber masukan"
   ],
   [
-    "Sistem Operasi",
-    "Sistem operasi mengatur komunikasi perangkat dan meneruskan masukan ke aplikasi yang aktif.",
-    "⚙️"
+    "Keyboard",
+    "Keyboard mendeteksi tombol yang ditekan lalu mengirimkan sinyal atau kode ke komputer melalui koneksi kabel maupun nirkabel.",
+    "⌨️",
+    "Perangkat input"
+  ],
+  [
+    "Driver dan Sistem Operasi",
+    "Driver membantu sistem operasi mengenali cara berkomunikasi dengan keyboard. Sistem operasi menerima masukan dan mengarahkannya ke aplikasi yang sedang digunakan.",
+    "⚙️",
+    "Penghubung dan pengatur"
   ],
   [
     "Aplikasi",
-    "Aplikasi pengolah kata menerima masukan sehingga karakter dapat diproses dan ditampilkan.",
-    "📝"
+    "Aplikasi aktif, misalnya pengolah kata, menerima karakter dari sistem operasi lalu memprosesnya sebagai bagian dari dokumen.",
+    "📝",
+    "Penerima data"
+  ],
+  [
+    "Monitor",
+    "Setelah aplikasi memperbarui tampilan dokumen, hasilnya dikirim melalui proses output dan terlihat di layar monitor.",
+    "🖥️",
+    "Hasil ditampilkan"
   ]
 ];
 
 const flowOutput = [
   [
     "Aplikasi",
-    "Aplikasi meminta hasil ditampilkan, misalnya huruf yang baru saja diketik.",
-    "📝"
+    "Pengguna memilih perintah, misalnya Print atau Play. Aplikasi kemudian meminta sistem operasi menampilkan atau mengeluarkan hasil.",
+    "📝",
+    "Sumber permintaan"
   ],
   [
     "Sistem Operasi",
-    "Sistem operasi mengatur permintaan keluaran dan komunikasi dengan perangkat monitor.",
-    "⚙️"
+    "Sistem operasi menerima permintaan aplikasi, menentukan perangkat yang digunakan, dan mengatur proses agar berjalan dengan tertib.",
+    "⚙️",
+    "Pengatur proses"
   ],
   [
-    "Monitor",
-    "Monitor menampilkan hasil kepada pengguna.",
-    "🖥️"
+    "Driver Perangkat",
+    "Driver menerjemahkan perintah umum dari sistem operasi menjadi instruksi yang dapat dipahami oleh perangkat tertentu.",
+    "🧩",
+    "Penerjemah perintah"
+  ],
+  [
+    "Perangkat Output",
+    "Perangkat menerima data atau instruksi. Contohnya printer menerima pekerjaan cetak, sedangkan speaker menerima data suara.",
+    "🖨️",
+    "Penerima keluaran"
+  ],
+  [
+    "Pengguna",
+    "Hasil akhirnya diterima oleh pengguna, misalnya dokumen tercetak di kertas, suara terdengar melalui speaker, atau gambar tampil di monitor.",
+    "😊",
+    "Hasil diterima"
   ]
 ];
 
@@ -1251,7 +1281,7 @@ const createPresentation = async () => {
 
             <span className="pill">
               <Sparkles size={14} />
-              Yuk, belajar sambil bermain!
+              Yuk, kita belajar!
             </span>
 
             <h1>
@@ -1447,6 +1477,70 @@ const createPresentation = async () => {
 
                 </div>
 
+                <div className="everyday-box" style={{ marginTop: 24 }}>
+                  <div>
+                    <span className="eyebrow">MATERI TAMBAHAN</span>
+                    <h3>Perangkat I/O berdasarkan arah datanya</h3>
+                    <p>
+                      Sebagian perangkat hanya mengirimkan data ke komputer,
+                      sebagian lain hanya menyampaikan hasil. Ada juga perangkat
+                      yang dapat melakukan kedua fungsi tersebut.
+                    </p>
+                  </div>
+                  <div className="role-grid" style={{ marginTop: 16 }}>
+                    <article className="role-card">
+                      <span>⬇️</span>
+                      <b>Perangkat Input</b>
+                      <p>
+                        Mengirimkan data atau perintah dari pengguna ke komputer.
+                        Contohnya keyboard, mouse, scanner, mikrofon, webcam,
+                        dan touchpad.
+                      </p>
+                      <div className="role-extra">
+                        <strong>Contoh penggunaan</strong>
+                        <p>Webcam menangkap gambar pengguna saat mengikuti kelas daring.</p>
+                      </div>
+                    </article>
+                    <article className="role-card">
+                      <span>⬆️</span>
+                      <b>Perangkat Output</b>
+                      <p>
+                        Menyampaikan hasil pengolahan komputer kepada pengguna.
+                        Contohnya monitor, printer, speaker, headphone, dan proyektor.
+                      </p>
+                      <div className="role-extra">
+                        <strong>Contoh penggunaan</strong>
+                        <p>Speaker mengeluarkan suara dari video pembelajaran.</p>
+                      </div>
+                    </article>
+                    <article className="role-card">
+                      <span>🔄</span>
+                      <b>Perangkat Input dan Output</b>
+                      <p>
+                        Dapat menerima sekaligus menyampaikan data. Contohnya
+                        layar sentuh dan headset yang memiliki mikrofon serta speaker.
+                      </p>
+                      <div className="role-extra">
+                        <strong>Contoh penggunaan</strong>
+                        <p>Layar sentuh menerima sentuhan pengguna dan menampilkan informasi.</p>
+                      </div>
+                    </article>
+                  </div>
+                </div>
+
+                <div className="note-box">
+                  <b>Bagaimana membedakan input dan output?</b>
+                  <p>
+                    Perhatikan arah perpindahan datanya, bukan bentuk perangkatnya.
+                    Jika data dikirim masuk ke komputer, fungsinya input. Jika hasil
+                    dikirim dari komputer ke pengguna, fungsinya output.
+                  </p>
+                  <p>
+                    Satu perangkat dapat memiliki dua fungsi. Karena itu, layar sentuh
+                    termasuk perangkat input sekaligus output.
+                  </p>
+                </div>
+
                 <div className="activity-box">
 
                   <div>
@@ -1623,6 +1717,27 @@ const createPresentation = async () => {
                       d: "Driver membantu sistem operasi mengenali dan berkomunikasi dengan perangkat tertentu.",
                       example: "Komputer menggunakan driver agar dapat mengenali printer yang baru dihubungkan.",
                       why: "Driver menjadi penghubung agar perangkat dapat dikenali dan digunakan."
+                    },
+                    {
+                      icon: "📦",
+                      t: "Menggunakan penyangga data (buffer)",
+                      d: "Buffer merupakan tempat penyimpanan sementara saat data sedang dipindahkan antara aplikasi dan perangkat.",
+                      example: "Saat memutar video, sebagian data dapat disiapkan sementara agar pemutaran lebih lancar.",
+                      why: "Buffer membantu mengatasi perbedaan kecepatan antara pengirim dan penerima data."
+                    },
+                    {
+                      icon: "🧾",
+                      t: "Mengatur antrean perangkat",
+                      d: "Sistem operasi dapat mengatur urutan pekerjaan ketika beberapa aplikasi meminta perangkat yang sama.",
+                      example: "Beberapa dokumen yang dikirim ke satu printer dapat menunggu dalam antrean cetak.",
+                      why: "Pekerjaan dapat diproses bergiliran sehingga permintaan tidak saling mengganggu."
+                    },
+                    {
+                      icon: "🚨",
+                      t: "Menangani kondisi atau kesalahan",
+                      d: "Sistem operasi membantu mendeteksi dan memberi informasi ketika proses I/O mengalami kendala.",
+                      example: "Ketika printer kehabisan kertas atau perangkat terputus, komputer dapat menampilkan pemberitahuan.",
+                      why: "Pengguna dapat mengetahui masalah dan menentukan tindakan perbaikan."
                     }
                   ].map((r) => (
                     <button
@@ -1649,6 +1764,26 @@ const createPresentation = async () => {
                     </button>
                   ))}
 
+                </div>
+
+                <div className="everyday-box" style={{ marginTop: 24 }}>
+                  <div>
+                    <span className="eyebrow">CONTOH PROSES LENGKAP</span>
+                    <h3>Apa yang terjadi saat kamu mencetak tugas?</h3>
+                    <p>
+                      Ketika tombol Print dipilih, aplikasi mengirim permintaan
+                      kepada sistem operasi. Sistem operasi mengatur pekerjaan cetak,
+                      menggunakan driver untuk berkomunikasi dengan printer, lalu
+                      printer mencetak dokumen. Jika printer sedang digunakan,
+                      pekerjaan dapat menunggu dalam antrean.
+                    </p>
+                  </div>
+                  <div className="note-box">
+                    <b>Istilah penting</b>
+                    <p><strong>Driver:</strong> perangkat lunak yang membantu sistem operasi berkomunikasi dengan perangkat keras.</p>
+                    <p><strong>Buffer:</strong> tempat penyimpanan sementara untuk data yang sedang dipindahkan.</p>
+                    <p><strong>Antrean I/O:</strong> urutan permintaan yang menunggu giliran menggunakan perangkat.</p>
+                  </div>
                 </div>
 
                 <div className="lkpd-hint">
@@ -1749,20 +1884,10 @@ const createPresentation = async () => {
 
                           <b>{f[0]}</b>
 
-                          <small>
-                            {i === 0
-                              ? flowType === "input"
-                                ? "Perangkat input"
-                                : "Aplikasi"
-                              : i === 1
-                                ? "Perantara"
-                                : flowType === "input"
-                                  ? "Aplikasi"
-                                  : "Perangkat output"}
-                          </small>
+                          <small>{f[3]}</small>
                         </button>
 
-                        {i < 2 && (
+                        {i < flow.length - 1 && (
                           <div className="flow-connector">
                             <span className="data-packet">●</span>
                             <span className="connector-arrow">➜</span>
@@ -1828,8 +1953,8 @@ const createPresentation = async () => {
 
                     <button
                       className="primary"
-                      disabled={flowStep === 2}
-                      onClick={() => setFlowStep((v) => v + 1)}
+                      disabled={flowStep === flow.length - 1}
+                      onClick={() => setFlowStep((v) => Math.min(v + 1, flow.length - 1))}
                     >
                       Tahap berikutnya
                       <ChevronRight size={16} />
@@ -1860,6 +1985,33 @@ const createPresentation = async () => {
                   <p>
                     Alur output: Aplikasi → Sistem Operasi → Perangkat output.
                   </p>
+                </div>
+
+                <div className="everyday-box" style={{ marginTop: 24 }}>
+                  <div>
+                    <span className="eyebrow">PENDALAMAN MATERI</span>
+                    <h3>Mengapa ada driver di antara sistem operasi dan perangkat?</h3>
+                    <p>
+                      Setiap perangkat memiliki cara kerja dan perintah teknis yang
+                      berbeda. Driver membantu menerjemahkan instruksi agar sistem
+                      operasi dapat berkomunikasi dengan perangkat yang digunakan.
+                      Karena itu, perangkat yang belum memiliki driver sesuai mungkin
+                      tidak dikenali atau tidak bekerja dengan baik.
+                    </p>
+                  </div>
+                  <div className="note-box">
+                    <b>Contoh alur dalam kehidupan sehari-hari</b>
+                    <p>
+                      <strong>Mengetik:</strong> tombol keyboard ditekan → sinyal
+                      diterima komputer → sistem operasi meneruskan masukan ke aplikasi
+                      → karakter muncul pada dokumen dan monitor.
+                    </p>
+                    <p>
+                      <strong>Mencetak:</strong> aplikasi meminta cetak → sistem operasi
+                      mengatur pekerjaan → driver menerjemahkan instruksi → printer
+                      mencetak dokumen.
+                    </p>
+                  </div>
                 </div>
 
                 <div className="activity-box vertical">
