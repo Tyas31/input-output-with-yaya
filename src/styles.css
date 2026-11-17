@@ -328,3 +328,715 @@ button { line-height: 1.45; }
     height: 135px;
   }
 }
+
+/* =========================================
+   PERBAIKAN TAMPILAN TANTANGAN LEVEL 2
+   DAN FORM IDENTITAS KELOMPOK
+   ========================================= */
+
+/* Tombol ulangi pada hasil tantangan tidak lagi menyempit/bertumpuk */
+.explanation p {
+  flex: 1 1 360px;
+  min-width: 0;
+}
+
+.explanation .retry-button {
+  flex: 0 0 auto;
+  align-self: center;
+  min-width: 142px;
+  min-height: 46px;
+  padding: 12px 16px;
+  white-space: nowrap;
+  border-radius: 16px;
+  font-size: 12px;
+}
+
+.explanation .retry-button svg {
+  flex-shrink: 0;
+}
+
+/* Identitas kelompok dibuat lebih lega dan mudah diisi */
+.lkpd-identity {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+
+.lkpd-identity label {
+  min-width: 0;
+}
+
+.lkpd-identity .members-field {
+  grid-column: 1 / -1;
+}
+
+.lkpd-identity input {
+  min-height: 48px;
+}
+
+.lkpd-identity textarea {
+  min-height: 88px;
+  resize: vertical;
+}
+
+.lkpd-identity input,
+.lkpd-identity textarea {
+  display: block;
+  min-width: 0;
+}
+
+@media (max-width: 560px) {
+  .lkpd-identity {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 13px;
+  }
+
+  .lkpd-identity .members-field {
+    grid-column: auto;
+  }
+
+  .explanation {
+    flex-wrap: wrap;
+  }
+
+  .explanation .retry-button {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+
+/* Perbaikan tombol Coba Lagi pada tantangan Level 2 */
+.explanation > .retry-button,
+.challenge-feedback > .retry-button {
+  flex: 0 0 auto;
+  width: auto;
+  min-width: 125px;
+  height: 46px;
+  padding: 10px 20px;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  white-space: nowrap;
+  align-self: center;
+  border-radius: 14px;
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.explanation > .retry-button svg,
+.challenge-feedback > .retry-button svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 650px) {
+  .explanation > .retry-button,
+  .challenge-feedback > .retry-button {
+    min-width: 115px;
+    height: 42px;
+    padding: 9px 15px;
+    font-size: 12px;
+  }
+}
+
+/* Jarak tombol pada bagian analisis troubleshooting */
+.detective-box > button.primary {
+  margin-left: 10px !important;
+}
+
+/* Jaga jarak tombol pada layar kecil */
+@media (max-width: 650px) {
+  .detective-box > button.primary {
+    margin-left: 0 !important;
+    margin-top: 10px;
+  }
+}
+
+
+/* =========================================
+   GLOBAL FONT SIZE IMPROVEMENT
+   Memperbesar tulisan di seluruh halaman
+========================================= */
+
+/* Ukuran dasar seluruh halaman */
+body {
+  font-size: 16px;
+}
+
+/* Teks paragraf */
+p {
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+/* Teks kecil dan keterangan */
+small {
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* Navigasi */
+.nav-link {
+  font-size: 14px;
+}
+
+.side-item {
+  font-size: 13px;
+}
+
+.side-heading {
+  font-size: 12px;
+}
+
+/* Judul halaman */
+.section-title h2 {
+  font-size: 32px;
+}
+
+.section-title p {
+  font-size: 15px;
+}
+
+/* Kartu perangkat */
+.device-name {
+  font-size: 15px;
+}
+
+.device-card p {
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* Tombol dan pilihan jawaban */
+button {
+  font-size: 14px;
+}
+
+.choice,
+.tab {
+  font-size: 14px;
+}
+
+.radio-option b {
+  font-size: 14px;
+}
+
+.radio-option small {
+  font-size: 13px;
+}
+
+/* Aktivitas dan penjelasan */
+.activity-box p,
+.lkpd-hint p,
+.note-box p,
+.concept-hero p,
+.flow-detail p,
+.case-card p,
+.detective-box > p,
+.explanation p {
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+/* Judul subbagian */
+.subheading {
+  font-size: 23px;
+}
+
+.activity-box h3,
+.detective-box h3 {
+  font-size: 21px;
+}
+
+/* Kartu peran */
+.role-card b {
+  font-size: 15px;
+}
+
+.role-card p {
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* Petunjuk dan hasil */
+.feedback,
+.result-line,
+.order-answer {
+  font-size: 14px;
+}
+
+.case-label,
+.eyebrow {
+  font-size: 12px;
+}
+
+/* Form LKPD */
+input,
+textarea,
+select {
+  font: inherit;
+  font-size: 15px;
+}
+
+/* Tombol utama dan sekunder */
+.primary,
+.secondary {
+  font-size: 14px;
+  padding: 13px 20px;
+}
+
+/* Tampilan HP */
+@media (max-width: 650px) {
+  p {
+    font-size: 14px;
+  }
+
+  .section-title h2 {
+    font-size: 27px;
+  }
+
+  .section-title p,
+  .activity-box p,
+  .concept-hero p,
+  .case-card p,
+  .explanation p {
+    font-size: 14px;
+  }
+
+  .nav-link {
+    font-size: 14px;
+  }
+}
+
+/* =========================================
+   FINAL RESPONSIVE FIX - PETUALANGAN I/O
+========================================= */
+
+/* Mencegah halaman melebar dari layar */
+html {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+body,
+#root,
+.app-shell {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: clip;
+}
+
+/* Semua elemen mengikuti ukuran layar */
+* {
+  box-sizing: border-box;
+}
+
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
+}
+
+/* Grid dan flex tidak boleh memaksa layar melebar */
+main,
+.hero,
+.content-layout,
+.lesson,
+.sidebar,
+.flow-2d,
+.flow-lane,
+.lkpd-workspace,
+.lkpd-identity,
+.lkpd-export,
+.detective-box,
+.everyday-box {
+  min-width: 0;
+  max-width: 100%;
+}
+
+@media (max-width: 650px) {
+
+  /* Header */
+  .topbar {
+    min-height: 64px;
+    gap: 8px;
+  }
+
+  .brand {
+    min-width: 0;
+    font-size: 15px;
+  }
+
+  .brand small {
+    font-size: 9px;
+  }
+
+  .mobile-menu {
+    flex-shrink: 0;
+  }
+
+  /* Konten utama */
+  main {
+    padding: 14px 10px;
+  }
+
+  .hero {
+    border-radius: 20px;
+    padding: 22px 15px;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .hero h1 {
+    font-size: clamp(27px, 7.5vw, 36px);
+    overflow-wrap: break-word;
+  }
+
+  .hero-copy,
+  .hero-art,
+  .hero-card {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .hero-card {
+    max-width: 230px;
+  }
+
+  /* Navigasi materi */
+  .content-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+  }
+
+  .sidebar,
+  .lesson {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .sidebar {
+    position: static;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .side-item {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .lesson {
+    padding: 17px 12px;
+    border-radius: 18px;
+  }
+
+  /* Kartu perangkat */
+  .device-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 9px;
+  }
+
+  .device-card {
+    min-width: 0;
+    padding: 12px 8px;
+  }
+
+  .device-actions {
+    flex-wrap: wrap;
+  }
+
+  /* Kartu fungsi dan aktivitas */
+  .role-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .role-card {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .concept-hero {
+    flex-wrap: wrap;
+  }
+
+  /* Alur komunikasi I/O */
+  .flow-track,
+  .flow-lane {
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .flow-tabs {
+    flex-wrap: wrap;
+  }
+
+  .flow-node-2d {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  /* Pilihan jawaban */
+  .radio-option {
+    min-width: 0;
+    align-items: flex-start;
+  }
+
+  .radio-option b,
+  .radio-option small {
+    overflow-wrap: anywhere;
+  }
+
+  .detective-box {
+    padding: 14px 11px;
+  }
+
+  .explanation {
+    flex-wrap: wrap;
+    min-width: 0;
+  }
+
+  /* Form LKPD */
+  .lkpd-workspace {
+    padding: 15px 10px;
+  }
+
+  .lkpd-identity,
+  .lkpd-question-grid,
+  .lkpd-export {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .lkpd-identity > *,
+  .lkpd-question-grid > * {
+    min-width: 0;
+    width: 100%;
+  }
+
+  input,
+  textarea,
+  select {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  /* Tombol */
+  button {
+    max-width: 100%;
+    white-space: normal;
+  }
+
+  .flow-controls,
+  .inline-actions,
+  .bottom-nav {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .flow-controls button,
+  .inline-actions button,
+  .bottom-nav button {
+    min-width: 0;
+    flex: 1 1 auto;
+  }
+
+  /* Footer */
+  footer {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+}
+
+/* HP dengan layar sangat kecil */
+@media (max-width: 380px) {
+  .brand {
+    font-size: 13px;
+  }
+
+  .sidebar {
+    padding: 10px;
+  }
+
+  .side-item {
+    font-size: 11px;
+    padding: 9px 5px;
+  }
+
+  .lesson {
+    padding: 14px 9px;
+  }
+
+  .device-grid,
+  .role-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .flow-lane {
+    gap: 3px;
+  }
+
+  .flow-node-2d b {
+    font-size: 9px;
+  }
+}
+
+
+/* HALAMAN UMPAN BALIK */
+.feedback-page {
+  width: 100%;
+  padding: 25px 0;
+}
+
+.feedback-summary {
+  background: linear-gradient(135deg, #fff4f6, #f5f5e9);
+  border: 1px solid #eadce0;
+  border-radius: 22px;
+  padding: 28px;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.feedback-icon {
+  font-size: 38px;
+  margin-bottom: 10px;
+}
+
+.feedback-summary h3 {
+  font-size: 23px;
+  color: #806b70;
+  margin: 8px 0;
+}
+
+.feedback-summary p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #98858a;
+}
+
+.feedback-counts {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.feedback-counts span {
+  background: white;
+  padding: 10px 15px;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #81777a;
+}
+
+.feedback-list {
+  display: grid;
+  gap: 13px;
+}
+
+.feedback-item {
+  background: white;
+  border: 1px solid #f0dce2;
+  border-radius: 17px;
+  padding: 18px;
+}
+
+.feedback-item-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  color: #806b70;
+  font-size: 14px;
+}
+
+.feedback-status {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.status-correct {
+  background: #eaf2df;
+  color: #70834f;
+}
+
+.status-partial {
+  background: #fff1d8;
+  color: #a77a35;
+}
+
+.status-wrong {
+  background: #fbe6e8;
+  color: #b76b75;
+}
+
+.feedback-answer {
+  font-size: 13px;
+  line-height: 1.7;
+  color: #766d70;
+  margin: 14px 0 8px;
+  overflow-wrap: anywhere;
+}
+
+.feedback-message {
+  background: #fff8f5;
+  border-radius: 12px;
+  padding: 12px;
+  color: #927d80;
+  font-size: 12px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.feedback-footer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 1px solid #f0dce2;
+}
+
+@media (max-width: 600px) {
+  .feedback-summary {
+    padding: 20px 14px;
+  }
+
+  .feedback-summary h3 {
+    font-size: 19px;
+  }
+
+  .feedback-counts {
+    gap: 7px;
+  }
+
+  .feedback-counts span {
+    font-size: 11px;
+    padding: 8px 10px;
+  }
+
+  .feedback-item {
+    padding: 14px;
+  }
+
+  .feedback-footer {
+    flex-direction: column;
+  }
+
+  .feedback-footer button {
+    width: 100%;
+    justify-content: center;
+  }
+}

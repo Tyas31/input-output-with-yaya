@@ -131,7 +131,7 @@ function Mascot() {
   return (
     <div className="mascot-photo-wrapper">
       <img
-        src="g1.png"
+        src="/g1.png"
         alt="Karakter Petualangan I/O"
         className="mascot-photo"
       />
@@ -237,6 +237,93 @@ function App() {
   );
 
   
+const feedbackItems = [
+  {
+    field: "keyboardCause1",
+    label: "Aktivitas 1 — Penyebab pertama",
+    keywords: ["keyboard", "koneksi", "kabel", "usb", "perangkat"]
+  },
+  {
+    field: "keyboardCause2",
+    label: "Aktivitas 1 — Penyebab kedua",
+    keywords: ["driver", "sistem operasi", "pengaturan", "aplikasi"]
+  },
+  {
+    field: "keyboardAction1",
+    label: "Aktivitas 1 — Langkah penanganan pertama",
+    keywords: ["keyboard", "eksternal", "kabel", "koneksi", "usb"]
+  },
+  {
+    field: "keyboardAction2",
+    label: "Aktivitas 1 — Langkah penanganan kedua",
+    keywords: ["driver", "pengaturan", "sistem operasi", "aplikasi"]
+  },
+  {
+    field: "keyboardEvidence",
+    label: "Aktivitas 1 — Bukti analisis",
+    keywords: ["keyboard", "tidak muncul", "tidak merespons", "monitor", "tulisan"]
+  },
+  {
+    field: "keyboardConclusion",
+    label: "Aktivitas 1 — Kesimpulan",
+    keywords: ["keyboard", "sistem operasi", "aplikasi", "input", "masukan"]
+  },
+  {
+    field: "printerCause1",
+    label: "Aktivitas 2 — Penyebab pertama",
+    keywords: ["tinta", "kartrid", "cartridge", "habis", "menipis"]
+  },
+  {
+    field: "printerCause2",
+    label: "Aktivitas 2 — Penyebab kedua",
+    keywords: ["print head", "head cleaning", "tersumbat", "kering", "saluran tinta"]
+  },
+  {
+    field: "printerAction1",
+    label: "Aktivitas 2 — Langkah penanganan pertama",
+    keywords: ["periksa tinta", "cek tinta", "kartrid", "cartridge", "isi tinta"]
+  },
+  {
+    field: "printerAction2",
+    label: "Aktivitas 2 — Langkah penanganan kedua",
+    keywords: ["head cleaning", "print head", "bersihkan", "pembersihan"]
+  },
+  {
+    field: "printerEvidence",
+    label: "Aktivitas 2 — Bukti analisis",
+    keywords: ["pucat", "tinta", "kertas keluar", "printer menarik kertas", "tidak tersangkut"]
+  },
+  {
+    field: "printerConclusion",
+    label: "Aktivitas 2 — Kesimpulan",
+    keywords: ["tinta", "printer", "pucat", "print head", "head cleaning"]
+  }
+];
+
+const evaluateAnswer = (field) => {
+  const item = feedbackItems.find((question) => question.field === field);
+  const answer = String(lkpd[field] || "").toLowerCase();
+
+  if (!item || !answer.trim()) return "Perlu diperbaiki";
+
+  const matched = item.keywords.filter((keyword) =>
+    answer.includes(keyword)
+  );
+
+  if (matched.length >= 2) return "Benar";
+  if (matched.length === 1) return "Kurang tepat";
+
+  return "Perlu diperbaiki";
+};
+
+const saveLkpdAnswers = () => {
+  if (!isLkpdComplete) return;
+
+  window.localStorage.setItem(STORAGE_KEY, JSON.stringify(lkpd));
+  setPage("feedback");
+  window.scrollTo({ top: 0, behavior: "smooth" });
+};
+
  
 const createPresentation = async () => {
   if (!isLkpdComplete) return;
@@ -2282,11 +2369,12 @@ const createPresentation = async () => {
 
                         <br />
 
-                        Hasil cetak kosong dapat terjadi ketika tinta
-                        atau toner habis, atau terdapat masalah pada
-                        sistem penyalur tinta. Pemeriksaan awal yang
-                        sesuai adalah memeriksa indikator tinta/toner
-                        dan kondisi kartrid.
+                        Hasil cetakan yang pucat dapat terjadi ketika tinta
+                        hampir habis atau print head tersumbat sehingga tinta
+                        tidak keluar dengan lancar. Pemeriksaan awal yang
+                        sesuai adalah memeriksa jumlah tinta terlebih dahulu.
+                        Jika tinta masih cukup, jalankan fitur Head Cleaning
+                        melalui pengaturan printer.
                       </p>
 
                       <button
@@ -2297,7 +2385,7 @@ const createPresentation = async () => {
                         }}
                       >
                         <RotateCcw size={15} />
-                        Coba Lagi
+                        Ulangi Tantangan
                       </button>
                     </div>
                   )}
@@ -2563,10 +2651,113 @@ const createPresentation = async () => {
                     )}
 
                   </div>
-
                 </section>
-
               </>
+            )}
+            {/* halaman umpan balik */}
+            {page === "feedback" && (
+              <section className="feedback-page">
+
+                <SectionTitle
+                  eyebrow="HASIL PEMBELAJARAN · PETUALANGAN I/O"
+                  title="Yuk, lihat hasil diskusimu!"
+                  desc="Berikut umpan balik untuk jawaban kelompokmu. Perhatikan bagian yang sudah tepat dan bagian yang masih perlu diperbaiki."
+                />
+
+                <div className="feedback-summary">
+                  <div className="feedback-icon">🌸</div>
+                  <h3>Terima kasih sudah menyelesaikan LKPD!</h3>
+                  <p>
+                    Jawaban kelompokmu sudah tersimpan.
+                    Yuk, perhatikan umpan balik berikut untuk
+                    memahami materi lebih baik.
+                  </p>
+
+                  <div className="feedback-counts">
+                    <span>
+                      ✓ {feedbackItems.filter(
+                        item => evaluateAnswer(item.field) === "Benar"
+                      ).length} Benar
+                    </span>
+
+                    <span>
+                      ! {feedbackItems.filter(
+                        item => evaluateAnswer(item.field) === "Kurang tepat"
+                      ).length} Kurang tepat
+                    </span>
+
+                    <span>
+                      ↻ {feedbackItems.filter(
+                        item => evaluateAnswer(item.field) === "Perlu diperbaiki"
+                      ).length} Perlu diperbaiki
+                    </span>
+                  </div>
+                </div>
+
+                <div className="feedback-list">
+                  {feedbackItems.map((item, index) => {
+                    const status = evaluateAnswer(item.field);
+
+                    return (
+                      <div className="feedback-item" key={item.field}>
+
+                        <div className="feedback-item-heading">
+                          <b>{index + 1}. {item.label}</b>
+
+                          <span className={`feedback-status ${
+                            status === "Benar"
+                              ? "status-correct"
+                              : status === "Kurang tepat"
+                              ? "status-partial"
+                              : "status-wrong"
+                          }`}>
+                            {status}
+                          </span>
+                        </div>
+
+                        <p className="feedback-answer">
+                          <b>Jawaban kelompok:</b><br />
+                          {lkpd[item.field]}
+                        </p>
+
+                        <p className="feedback-message">
+                          {status === "Benar"
+                            ? "Bagus! Jawabanmu sudah memuat konsep penting yang sesuai dengan permasalahan."
+                            : status === "Kurang tepat"
+                            ? "Jawabanmu sudah mengarah ke konsep yang benar. Coba lengkapi penjelasan dan hubungkan dengan petunjuk pada kasus."
+                            : "Jawabanmu masih perlu diperbaiki. Pelajari kembali materi dan perhatikan gejala yang muncul pada kasus."}
+                        </p>
+
+                      </div>
+                    );
+                  })}
+                </div>
+
+                <div className="feedback-footer">
+                  <button
+                    className="secondary"
+                    onClick={() => {
+                      setPage("trouble");
+                      window.scrollTo({ top: 0, behavior: "smooth" });
+                    }}
+                  >
+                    <ChevronLeft size={16} />
+                    Perbaiki Jawaban
+                  </button>
+
+                  <button
+                    className="primary"
+                    onClick={() => {
+                      setPage("trouble");
+                      window.scrollTo({ top: 0, behavior: "smooth" });
+                    }}
+                  >
+                    Kembali ke LKPD
+                    <ChevronRight size={16} />
+                  </button>
+                </div>
+
+              </section>
             )}
 
             {/* ==================================
@@ -2577,28 +2768,44 @@ const createPresentation = async () => {
 
               <button
                 className="secondary"
-                onClick={() =>
-                  go(
-                    navItems[
-                      Math.max(
-                        0,
-                        navItems.findIndex((n) => n.id === page) - 1
-                      )
-                    ].id
-                  )
-                }
+                onClick={() => {
+                  if (page === "feedback") {
+                    setPage("trouble");
+                  } else {
+                    go(
+                      navItems[
+                        Math.max(
+                          0,
+                          navItems.findIndex((n) => n.id === page) - 1
+                        )
+                      ].id
+                    );
+                  }
+                }}
               >
                 <ChevronLeft size={16} />
                 Bagian sebelumnya
               </button>
+              
+              {page === "trouble" ? (
+                <button
+                  className="primary"
+                  onClick={saveLkpdAnswers}
+                  disabled={!isLkpdComplete}
+                >
+                  Simpan Jawaban
+                  <ChevronRight size={16} />
+                </button>
+              ) : page !== "feedback" ? (
+                <button
+                  className="primary"
+                  onClick={nextPage}
+                >
+                  Bagian berikutnya
+                  <ChevronRight size={16} />
+                </button>
+              ) : null}
 
-              <button
-                className="primary"
-                onClick={nextPage}
-              >
-                Bagian berikutnya
-                <ChevronRight size={16} />
-              </button>
 
             </div>
 
